@@ -9,7 +9,7 @@
 #import "GSTouchesShowingController.h"
 
 #define TOUCH_IMAGE_NAME        @"GSTouchImageBlue.png"
-#define SHORT_TAP_TRESHOLD_DURATION             0.11
+#define SHORT_TAP_TRESHOLD_DURATION             0.5
 #define SHORT_TAP_INITIAL_CIRCLE_RADIUS         22
 #define SHORT_TAP_FINAL_CIRCLE_RADIUS           57
 
