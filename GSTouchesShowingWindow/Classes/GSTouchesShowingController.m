@@ -169,15 +169,22 @@
     if (self = [super init]) {
         self.backingArray = [[NSMutableArray alloc] init];
         for (NSUInteger i = 0; i < count; i++) {
-            NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-            UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:TOUCH_IMAGE_NAME inBundle:bundle compatibleWithTraitCollection:nil]];
-            [self.backingArray addObject:imgView];
+            [self addImgView];
         }
     }
     return self;
 }
 
+- (void)addImgView {
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:TOUCH_IMAGE_NAME inBundle:bundle compatibleWithTraitCollection:nil]];
+    [self.backingArray addObject:imgView];
+}
+
 - (UIImageView *)popTouchImageView {
+    if (self.backingArray.count == 0) {
+        [self addImgView];
+    }
     UIImageView *touchImageView = [self.backingArray firstObject];
     [self.backingArray removeObjectAtIndex:0];
     return touchImageView;
