@@ -191,7 +191,9 @@
 }
 
 - (void)pushTouchImageView:(UIImageView *)touchImageView {
-    [self.backingArray addObject:touchImageView];
+    if (touchImageView) {
+	[self.backingArray addObject:touchImageView];
+    }
 }
 
 @end
